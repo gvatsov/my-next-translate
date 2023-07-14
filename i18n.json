@@ -1,0 +1,12 @@
+{
+  "defaultLocale": "default",
+  "locales": ["default", "en", "pt", "ar", "ku", "tr", "fr", "de", "es", "vi"],
+  "localeDetection": false,
+  "pages": {
+    "*": ["default", "header", "footer"],
+    "/": ["home"],
+    "/cart": ["cart"],
+    "/content/[slug]": ["content"],
+    "rgx:^/account": ["account"]
+  }
+}
