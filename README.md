@@ -1,3 +1,6 @@
+https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/
+https://www.npmjs.com/package/@cloudflare/next-on-pages
+
 DEPLOY
 normal
 `yarn dev`
