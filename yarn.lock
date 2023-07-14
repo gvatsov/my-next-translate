@@ -3016,6 +3016,11 @@ comma-separated-tokens@^2.0.0:
   resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-2.0.3.tgz#4e89c9458acb61bc8fef19f4529973b2392839ee"
   integrity sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==
 
+comment-parser@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-1.3.1.tgz#3d7ea3adaf9345594aedee6563f422348f165c1b"
+  integrity sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -3785,6 +3790,14 @@ eslint-plugin-jsx-a11y@^6.5.1:
     object.entries "^1.1.6"
     object.fromentries "^2.0.6"
     semver "^6.3.0"
+
+eslint-plugin-next-on-pages@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-next-on-pages/-/eslint-plugin-next-on-pages-1.3.0.tgz#62ae633f21495a5768be625e256de05f17f96839"
+  integrity sha512-ykRYAPuzJwHx1HZqpvLfi7w+hfJLTRcuEXKIKO3nVmhp9JYWYV+DwAv0miEXWZb/e9Tv/VwqeS44FTZWlJ0IYQ==
+  dependencies:
+    "@types/estree-jsx" "^1.0.0"
+    comment-parser "^1.3.1"
 
 eslint-plugin-react-hooks@5.0.0-canary-7118f5dd7-20230705:
   version "5.0.0-canary-7118f5dd7-20230705"

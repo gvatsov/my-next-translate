@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/stylis": "^4.2.0",
+    "eslint-plugin-next-on-pages": "^1.3.0",
     "next-translate-plugin": "^2.4.4",
     "vercel": "^31.0.3"
   }
