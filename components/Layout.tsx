@@ -14,10 +14,7 @@ import {
 } from "@mui/material";
 import CookieService from "services/persist/CookieService";
 import StyledCircularProgress from "./StyledCircularProgress";
-
-type Props = {
-  children: React.ReactNode;
-};
+import useTranslation from "next-translate/useTranslation";
 
 const links = [
   { href: "/", label: "Sports" },
@@ -25,13 +22,13 @@ const links = [
   { href: "/promotions", label: "Promotions" },
 ];
 
-const Layout: React.FC<Props> = ({ children }) => {
-  const [locale, setLocale] = React.useState<string | null>(null);
+type Props = {
+  children: React.ReactNode;
+  locale: string;
+};
 
-  React.useEffect(() => {
-    const localeCookie = CookieService.retrieveCookie("client-locale") || "en";
-    setLocale(localeCookie);
-  }, []);
+const Layout: React.FC<Props> = ({ children, locale }) => {
+  const { t } = useTranslation("header");
 
   const handleChange = (event: SelectChangeEvent) => {
     const localeCookie = event.target.value;
@@ -46,7 +43,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <Grid item sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
             {links.map(link => (
               <Link href={link.href} key={link.href}>
-                {link.label}
+                {t(`header:${link.label}`)}
               </Link>
             ))}
           </Grid>

@@ -11,11 +11,11 @@ export const runtime = "experimental-edge";
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const locale = LocalizationService.getLocaleFromContext(context);
 
-  const messages = await ServerSideTranslations.getForDefault(locale, ["account"]);
   return {
     props: {
-      messages,
       locale,
+      __lang: locale,
+      __namespaces: await ServerSideTranslations.getForDefault(locale, ["promotions"]),
     },
   };
 };
@@ -26,11 +26,15 @@ const promotions = [
   { id: 3, title: "Promotion 3", description: "Description 3" },
 ];
 
-const PromotionsPage: NextPage = () => {
+interface PageProps {
+  locale: string;
+}
+
+const PromotionsPage: NextPage<PageProps> = ({ locale }) => {
   const { t } = useTranslation();
 
   return (
-    <Layout>
+    <Layout locale={locale}>
       <Container maxWidth="xl" sx={{ overflow: "hidden" }}>
         <PromoTitle>{t(`default:Betfinal Promotions`)}</PromoTitle>
         <PromoDesc>

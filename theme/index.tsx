@@ -1,9 +1,6 @@
 import { CacheProvider } from "@emotion/react";
 import { GlobalStyles, PaletteMode, Direction } from "@mui/material";
-import {
-  createTheme,
-  ThemeProvider as MuiThemeProvider,
-} from "@mui/material/styles";
+import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import React, { useMemo } from "react";
 import createEmotionCache from "./utils/createEmotionCache";
 import getComponents from "./utils/getComponents";
@@ -38,17 +35,10 @@ export const theme = (mode: PaletteMode, direction: Direction) => {
   };
 };
 
-export default function ThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const { language, isRtl } = useLanguage();
+export default function ThemeProvider({ children, locale }: { children: React.ReactNode; locale: string }) {
+  const { isRtl } = useLanguage(locale);
   const [direction, setDirection] = React.useState<Direction>("ltr");
-  const clientSideEmotionCache = React.useMemo(
-    () => createEmotionCache(direction),
-    [direction]
-  );
+  const clientSideEmotionCache = React.useMemo(() => createEmotionCache(direction), [direction]);
 
   //=== MODE ====//
   const [mode, setMode] = React.useState<PaletteMode>("dark");
@@ -90,24 +80,19 @@ export default function ThemeProvider({
       document.body.removeAttribute("dir");
       memoDirection.handleSetDirection("ltr");
     }
-    document.getElementsByTagName("html")[0].setAttribute("lang", language);
-  }, [language, isRtl, memoDirection]);
+    document.getElementsByTagName("html")[0].setAttribute("lang", locale);
+  }, [locale, isRtl, memoDirection]);
 
   //=== DIRECTION ====//
 
-  const themeObject = useMemo(
-    () => createTheme(theme(mode, direction)),
-    [mode, direction]
-  );
+  const themeObject = useMemo(() => createTheme(theme(mode, direction)), [mode, direction]);
 
   return (
     <CacheProvider value={clientSideEmotionCache}>
       <MuiThemeProvider theme={themeObject}>
         <ThemeContextProvider>
           <GlobalStyles styles={getGlobalStyles(mode)} />
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            {children}
-          </LocalizationProvider>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>{children}</LocalizationProvider>
         </ThemeContextProvider>
       </MuiThemeProvider>
     </CacheProvider>

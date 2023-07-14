@@ -10,26 +10,24 @@ export const runtime = "experimental-edge";
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const locale = LocalizationService.getLocaleFromContext(context);
 
-  const messages = await ServerSideTranslations.getForDefault(locale, ["account"]);
-
   return {
     props: {
-      messages,
       locale,
+      __lang: locale,
+      __namespaces: await ServerSideTranslations.getForDefault(locale, ["account"]),
     },
   };
 };
 
-interface Props {
-  messages: any;
+interface PageProps {
   locale: string;
 }
 
-const HomePage: NextPage<Props> = () => {
+const HomePage: NextPage<PageProps> = ({ locale }) => {
   const { t } = useTranslation();
 
   return (
-    <Layout>
+    <Layout locale={locale}>
       <h1>{t("header:Sports")}</h1>
       {t("account:Account Information")}
     </Layout>
