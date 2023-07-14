@@ -30,8 +30,8 @@ const HomePage: NextPage<Props> = () => {
 
   return (
     <Layout>
-      <h1>{t("header.Sports")}</h1>
-      {t("account.Account Information")}
+      <h1>{t("header:Sports")}</h1>
+      {t("account:Account Information")}
     </Layout>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import { CircularProgress } from "@mui/material";
-import { styled } from "@mui/system";
+import { CircularProgress, styled } from "@mui/material";
 
 interface IProps {
   center?: boolean;

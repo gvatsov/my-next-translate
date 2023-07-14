@@ -24,8 +24,8 @@ const CasinoPage: NextPage = props => {
 
   return (
     <Layout>
-      <h1>{t("header.Casino")}</h1>
-      <div>{t("account.Active bonuses")}</div>
+      <h1>{t("header:Casino")}</h1>
+      <div>{t("account:Active bonuses")}</div>
     </Layout>
   );
 };

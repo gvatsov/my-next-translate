@@ -1,5 +1,4 @@
-import { Card, Container, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Card, Container, Typography, styled } from "@mui/material";
 import Layout from "components/Layout";
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
 import useTranslation from "next-translate/useTranslation";
@@ -33,10 +32,10 @@ const PromotionsPage: NextPage = () => {
   return (
     <Layout>
       <Container maxWidth="xl" sx={{ overflow: "hidden" }}>
-        <PromoTitle>{t(`default.Betfinal Promotions`)}</PromoTitle>
+        <PromoTitle>{t(`default:Betfinal Promotions`)}</PromoTitle>
         <PromoDesc>
           {t(
-            "default.Don't miss out on our new casino promotions, including the Cashback deals, Anytime bonus and much more!"
+            "default:Don't miss out on our new casino promotions, including the Cashback deals, Anytime bonus and much more!"
           )}
         </PromoDesc>
 

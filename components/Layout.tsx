@@ -10,10 +10,10 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
+  styled,
 } from "@mui/material";
 import CookieService from "services/persist/CookieService";
 import StyledCircularProgress from "./StyledCircularProgress";
-import { styled } from "@mui/system";
 
 type Props = {
   children: React.ReactNode;

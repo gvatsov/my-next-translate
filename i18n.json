@@ -1,7 +1,9 @@
 {
   "defaultLocale": "default",
   "locales": ["default", "en", "pt", "ar", "ku", "tr", "fr", "de", "es", "vi"],
+  "defaultNS": "default",
   "localeDetection": false,
+  "localesToIgnore": ["default", "en", "pt", "ar", "ku", "tr", "fr", "de", "es", "vi"],
   "pages": {
     "*": ["default", "header", "footer"],
     "/": ["home"],

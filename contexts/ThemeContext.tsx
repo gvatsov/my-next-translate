@@ -1,6 +1,5 @@
 import React from "react";
-import { TextField, useMediaQuery } from "@mui/material";
-import { Direction, styled, useTheme } from "@mui/system";
+import { Direction, TextField, styled, useMediaQuery, useTheme } from "@mui/material";
 
 interface IThemeContext {
   mediaQueries: {
