@@ -1,20 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import {
-  AppBar,
-  Container,
-  FormControl,
-  FormHelperText,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  styled,
-} from "@mui/material";
-import CookieService from "services/persist/CookieService";
-import StyledCircularProgress from "./StyledCircularProgress";
+import { AppBar, Container, Grid, styled } from "@mui/material";
 import useTranslation from "next-translate/useTranslation";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const links = [
   { href: "/", label: "Sports" },
@@ -30,12 +18,6 @@ type Props = {
 const Layout: React.FC<Props> = ({ children, locale }) => {
   const { t } = useTranslation("header");
 
-  const handleChange = (event: SelectChangeEvent) => {
-    const localeCookie = event.target.value;
-    CookieService.storeCookie("client-locale", localeCookie);
-    window.location.reload();
-  };
-
   return (
     <StyledMainContainer>
       <StyledAppBar position="sticky">
@@ -48,26 +30,7 @@ const Layout: React.FC<Props> = ({ children, locale }) => {
             ))}
           </Grid>
           <Grid item>
-            {locale ? (
-              <FormControl>
-                <InputLabel id="simple-select-label">Locale</InputLabel>
-                <Select
-                  labelId="simple-select-label"
-                  id="simple-select"
-                  label="Locale"
-                  value={locale}
-                  onChange={handleChange}
-                >
-                  <MenuItem value="en">en</MenuItem>
-                  <MenuItem value="de">de</MenuItem>
-                  <MenuItem value="fr">fr</MenuItem>
-                  <MenuItem value="ar">ar</MenuItem>
-                </Select>
-                <FormHelperText>Add Locale to cookies</FormHelperText>
-              </FormControl>
-            ) : (
-              <StyledCircularProgress />
-            )}
+            <LocaleSwitcher locale={locale} />
           </Grid>
         </StyledGridContainer>
       </StyledAppBar>

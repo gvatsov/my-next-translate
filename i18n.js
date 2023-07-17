@@ -1,6 +1,8 @@
+const locales = require("./locales");
+
 module.exports = {
   defaultLocale: "default",
-  locales: ["default", "en", "pt", "ar", "ku", "tr", "fr", "de", "es", "vi"],
+  locales: ["default", ...locales],
   localeDetection: false,
   pages: {
     "*": ["default", "header", "footer"],
