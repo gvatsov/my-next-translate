@@ -15,3 +15,8 @@ use `npm i -g wrangler@3.2.0` (v2 not working for `npx wrangler pages dev .verce
 
 CF ENV
 add env: `YARN_ENABLE_IMMUTABLE_INSTALLS` -> `false`
+
+CF DEPLOY:
+
+- `Error: Failed to publish your Function. Got error: Your Functions script is over the 1 MiB size limit (workers.api.error.script_too_large)`
+  https://github.com/cloudflare/next-on-pages/issues/47
